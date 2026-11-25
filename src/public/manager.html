@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Persetujuan · Expense Claim</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script defer src="/app.js"></script>
+</head>
+<body data-page="approval">
+  <header class="masthead">
+    <span>Expense Claim <small>LAB LOKAL</small></span>
+    <nav aria-label="Halaman aplikasi">
+      <a href="/">Klaim Saya</a><a href="/manager.html" aria-current="page">Persetujuan</a><a href="/report.html">Laporan</a>
+    </nav>
+  </header>
+  <main>
+    <p class="eyebrow">02 / MANAGER &amp; FINANCE</p>
+    <h1>Persetujuan</h1>
+    <p>Manager memeriksa klaim timnya. Finance memeriksa klaim yang perlu persetujuan kedua.</p>
+    <div class="actor"><label for="actor">Akun latihan</label>
+      <select id="actor"><option value="3">Manager A · Operasional</option><option value="4">Manager B · Teknologi</option><option value="5">Finance A</option><option value="6">Finance B</option></select>
+    </div>
+    <p id="feedback" role="status" aria-live="polite"></p>
+    <section class="panel">
+      <h2>Antrian persetujuan</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Judul</th><th scope="col">Jumlah</th><th scope="col">Status</th><th scope="col">Tindakan</th></tr></thead>
+          <tbody id="results"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

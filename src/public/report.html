@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laporan · Expense Claim</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script defer src="/app.js"></script>
+</head>
+<body data-page="report">
+  <header class="masthead">
+    <span>Expense Claim <small>LAB LOKAL</small></span>
+    <nav aria-label="Halaman aplikasi">
+      <a href="/">Klaim Saya</a><a href="/manager.html">Persetujuan</a><a href="/report.html" aria-current="page">Laporan</a>
+    </nav>
+  </header>
+  <main>
+    <p class="eyebrow">03 / FINANCE</p>
+    <h1>Laporan Pengeluaran</h1>
+    <p>Lihat klaim yang sudah disetujui berdasarkan bulan, kategori, dan departemen.</p>
+    <div class="actor">
+      <div><label for="actor">Akun latihan</label><select id="actor"><option value="5">Finance A</option><option value="6">Finance B</option></select></div>
+      <div><label for="month">Bulan laporan</label><input type="month" id="month"></div>
+    </div>
+    <p id="feedback" role="status" aria-live="polite"></p>
+    <section class="panel">
+      <h2>Rekap bulanan</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Kategori</th><th scope="col">Departemen</th><th scope="col">Klaim</th><th scope="col">Total</th></tr></thead>
+          <tbody id="results"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

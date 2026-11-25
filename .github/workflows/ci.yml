@@ -1,0 +1,36 @@
+name: CI
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    name: test (${{ matrix.tz }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - tz: Asia/Jakarta
+            artifact: jakarta
+          - tz: America/Los_Angeles
+            artifact: los-angeles
+    env:
+      TZ: ${{ matrix.tz }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '20.20.2'
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run coverage
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: coverage-${{ matrix.artifact }}
+          path: coverage/
+      - run: npx playwright install --with-deps chromium
+      - run: npm run e2e

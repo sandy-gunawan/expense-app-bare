@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Klaim Saya · Expense Claim</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script defer src="/app.js"></script>
+</head>
+<body data-page="employee">
+  <header class="masthead">
+    <span>Expense Claim <small>LAB LOKAL</small></span>
+    <nav aria-label="Halaman aplikasi">
+      <a href="/" aria-current="page">Klaim Saya</a><a href="/manager.html">Persetujuan</a><a href="/report.html">Laporan</a>
+    </nav>
+  </header>
+  <main>
+    <p class="eyebrow">01 / KARYAWAN</p>
+    <h1>Klaim Saya</h1>
+    <p>Ajukan biaya perjalanan, makan, atau peralatan. Pakai data fiktif saja.</p>
+    <div class="actor"><label for="actor">Akun latihan</label>
+      <select id="actor"><option value="1">Karyawan A · Operasional</option><option value="2">Karyawan B · Teknologi</option></select>
+    </div>
+    <p id="feedback" role="status" aria-live="polite"></p>
+    <div class="columns">
+      <section class="panel">
+        <h2>Ajukan klaim</h2>
+        <form id="claim-form">
+          <label for="title">Judul klaim</label><input id="title" name="title" required maxlength="100" placeholder="Contoh: Taksi bandara">
+          <label for="amount">Jumlah (IDR)</label><input id="amount" name="amount" type="number" min="1" max="50000000" step="1" required>
+          <label for="attachment">Nama lampiran (opsional)</label><input id="attachment" name="attachment" maxlength="120" placeholder="kuitansi.pdf">
+          <label for="notes">Catatan (opsional)</label><textarea id="notes" name="notes" maxlength="500" rows="2"></textarea>
+          <button type="submit" id="submit" disabled>Submit</button>
+        </form>
+      </section>
+      <section class="panel">
+        <h2>Riwayat klaim</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th scope="col">Judul</th><th scope="col">Jumlah</th><th scope="col">Status</th></tr></thead>
+            <tbody id="results"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

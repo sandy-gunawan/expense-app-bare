@@ -1,0 +1,48 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f8fafc; --paper: #fff; --text: #1e293b; --muted: #475569;
+  --line: #cbd5e1; --accent: #1d4ed8; --focus: #1d4ed8; --error: #9f1239;
+  --button: #1d4ed8; --on-button: white; --ok: #166534;
+  font: 1rem/1.55 system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0f172a; --paper: #172335; --text: #f1f5f9; --muted: #cbd5e1;
+    --line: #526785; --accent: #a7c7ff; --focus: #a7c7ff; --error: #fda4af; --ok: #86efac; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); }
+h1, h2, p { margin: 0 0 .75rem; }
+h1 { font-size: clamp(2rem, 5vw, 3.1rem); line-height: 1.1; }
+h2 { font-size: 1.25rem; }
+p { color: var(--muted); }
+a { color: var(--accent); }
+.masthead {
+  background: var(--paper); border-bottom: 1px solid var(--line); padding: .75rem max(1rem, (100% - 70rem) / 2);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1rem; font-weight: 720;
+}
+.masthead small { color: var(--muted); margin-left: .35rem; letter-spacing: .08em; }
+nav { display: flex; gap: .35rem; flex-wrap: wrap; }
+nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 .65rem; }
+nav a[aria-current] { color: var(--text); text-decoration-thickness: .18em; }
+main { width: min(100% - 2rem, 70rem); margin: 2rem auto 3rem; }
+.eyebrow { font-size: .85rem; font-weight: 760; letter-spacing: .12em; color: var(--accent); }
+.actor { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin: 1rem 0; }
+.actor label { margin: 0; }
+.actor input, .actor select { width: auto; max-width: 100%; }
+.columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); gap: 1rem; align-items: start; }
+.panel { min-width: 0; padding: clamp(1rem, 3vw, 1.5rem); border: 1px solid var(--line); border-radius: .75rem; background: var(--paper); }
+label { display: block; font-weight: 650; margin: .45rem 0 .2rem; }
+input, select, textarea, button { font: inherit; min-height: 44px; border-radius: .45rem; }
+input, select, textarea { width: 100%; background: var(--bg); color: var(--text); border: 1px solid var(--line); padding: .5rem .65rem; }
+button { padding: .45rem .8rem; color: var(--on-button); background: var(--button); border: 1px solid transparent; cursor: pointer; font-weight: 650; }
+button.secondary { color: var(--accent); background: var(--paper); border-color: var(--line); }
+button:disabled { opacity: .7; cursor: wait; }
+form button { margin-top: .75rem; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: .55rem .35rem; text-align: left; vertical-align: middle; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
+td button { margin-right: .4rem; margin-bottom: .35rem; }
+.error { color: var(--error); font-weight: 680; }
+.toast { color: var(--ok); font-weight: 680; }
+#feedback { min-height: 1.6em; }
